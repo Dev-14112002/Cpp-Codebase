@@ -1,0 +1,36 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build cpp",
+      "type": "shell",
+      "command": "g++",
+      "args": [
+        "${file}",
+        "-o",
+        "${fileDirname}\\${fileBasenameNoExtension}.exe"
+      ],
+      "group": "build",
+      "problemMatcher": [],
+      "detail": "Compile C++ file"
+    },
+    {
+      "label": "run cpp",
+      "type": "shell",
+      "command": "${fileDirname}\\${fileBasenameNoExtension}.exe",
+      "group": "test",
+      "problemMatcher": [],
+      "detail": "Run compiled file"
+    },
+    {
+      "label": "build and run cpp",
+      "dependsOn": ["build cpp", "run cpp"],
+      "dependsOrder": "sequence",
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    }
+  ]
+}
